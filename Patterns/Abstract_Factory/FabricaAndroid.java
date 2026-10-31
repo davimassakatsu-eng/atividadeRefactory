@@ -3,7 +3,7 @@ package Patterns.Abstract_Factory;
 public class FabricaAndroid implements Fabricas {
     @Override
     public Botao criarBotao() {
-        return new BtnAndroid() ;
+        return new BtnAndroid();
     }
 
     @Override

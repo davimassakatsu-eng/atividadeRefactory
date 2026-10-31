@@ -1,10 +1,13 @@
 package Patterns.Factory_Method;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        IntNotificacoes notificacoes = new FabricaNotificacoes()
-            .criarNotificacoes("email");
+        List<FabricaNotificacoes> fabricas = List.of(new FabricaEmail(), new FabricaSMS());
 
-        notificacoes.enviar();
+        for (FabricaNotificacoes fabrica : fabricas) {
+            fabrica.notificar();
+        }
     }
 }

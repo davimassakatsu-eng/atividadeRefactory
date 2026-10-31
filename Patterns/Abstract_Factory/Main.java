@@ -1,26 +1,13 @@
 package Patterns.Abstract_Factory;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        String tipo = "andr"; 
+        List<Fabricas> fabricas = List.of(new FabricaAndroid(), new FabricaIOS());
 
-        if(tipo.equals("ios")){
-            Fabricas fabricaIOS = new FabricaIOS();
-
-            Botao btnIOS = fabricaIOS.criarBotao();
-            Input inputIOS = fabricaIOS.criarInput();
-
-            btnIOS.renderizarBotao();
-            inputIOS.renderizarInput();
-
-        }else if (tipo.equals("andr")){
-            Fabricas fabricaAndr = new FabricaAndroid();
-
-            Botao btnAndr = fabricaAndr.criarBotao();
-            Input inputAndr = fabricaAndr.criarInput();
-
-            btnAndr.renderizarBotao();
-            inputAndr.renderizarInput();
+        for (Fabricas fabrica : fabricas) {
+            new Aplicacao(fabrica).renderizar();
         }
     }
 }
